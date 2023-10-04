@@ -75,6 +75,12 @@ function init() {
     //document.body.appendChild(renderer.domElement);
 }
 
+const sliderZoom = document.getElementById("detail");
+
+sliderZoom.oninput = function() {
+    camera.position.z = this.value;
+}
+
 document.addEventListener("ondrag", onDocumentKeyDown, false);
 document.addEventListener("keydown", onDocumentKeyDown, false);
 function onDocumentKeyDown() {
