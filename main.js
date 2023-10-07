@@ -166,7 +166,53 @@ function animateSun() {
 
     // Update the sun's position
     sun.position.set(x, 1, z);
-    console.log(timeOfDay);
+
+}
+
+function latLngToCartesian(latitude, longitude, radius) {
+    const phiRad = (latitude - 90) * (Math.PI / 180);
+    const thetaRad = longitude * (Math.PI / 180);
+
+    console.log(phiRad, thetaRad);
+
+    const x = radius * Math.sin(phiRad) * Math.cos(thetaRad);
+    const y = radius * Math.sin(phiRad) * Math.sin(thetaRad);
+    const z = radius * Math.cos(phiRad);
+
+    return { x, y, z };
+}
+
+//add azymut
+
+function createSphereFromLongLat(long, lat, azymut) {
+    
+    // const theta = Math.random() * Math.PI;
+    // const phi = Math.random() * 2 * Math.PI;
+    // let x = radius * Math.sin(theta) * Math.cos(phi);
+    // let y = radius * Math.sin(theta) * Math.sin(phi);
+    // let z = radius * Math.cos(theta) * Math.sin(phi);
+
+    azymut = azymut * (Math.PI/180);
+    const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+
+    const sphereMaterial = new THREE.ShaderMaterial({
+        uniforms: {
+            colorA: { value: new THREE.Vector3(1, 0, 0) },
+            colorB: { value: new THREE.Vector3(1, 0, 0) }
+        },
+        vertexShader: vertexShader,
+        fragmentShader: fragmentShader
+    });
+
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    const coordinate = latLngToCartesian(long, lat,radius);
+    const point = new THREE.Vector3(coordinate.x, coordinate.y, coordinate.z);
+    console.log(point);
+
+    // TODO 
+
+    sphere.position.copy(point);
+    pulseGroup.add(sphere);
 }
 
 function initSphere() {
@@ -174,7 +220,12 @@ function initSphere() {
     createMoon();
     //createLines();
     createFrames();
-    createRandomSpheres();
+    //createRandomSpheres();
+    createSphereFromLongLat(-3, -23);
+    createSphereFromLongLat(-3, -17);
+    createSphereFromLongLat(26,3);
+    createSphereFromLongLat(-9, 15);
+    createSphereFromLongLat(20,30);
 }
 
 // function setupGUI() {
@@ -273,7 +324,7 @@ function onDocumentKeyDown(e) {
 
 function animateSphere(sphere) {
     const time = Date.now() * 0.001;
-    const pulseScale = 0.5 + 0.5 * Math.sin(time * 2);
+    const pulseScale = 0.5 * Math.sin(time * 2);
     const scale = new THREE.Vector3(pulseScale, pulseScale, pulseScale);
     sphere.scale.copy(scale);
 }
