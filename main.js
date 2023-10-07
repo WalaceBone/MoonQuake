@@ -8,6 +8,9 @@ let control;
 const radius = 10;
 let pulseGroup;
 
+let sun, moon;
+
+
 const vertexShader = `
     varying vec2 vUv;
     void main() {
@@ -83,11 +86,11 @@ function createLines() {
         new THREE.Vector3(0, 0, 0),
         new THREE.Vector3(0, 0, 200),
     ];
-    
+
     const line = createLine(points);
     group.add(line);
-    
-    
+
+
 }
 
 function createFrames() {
@@ -99,10 +102,11 @@ function createFrames() {
         wireframe: true
     });
 
-    for (let i = radius; i > 0; i--) {
+    for (let i = radius; i > 0; --i) {
         const frameGeometry = new THREE.SphereGeometry(i, longSegments, latSegments);
         const frameSphere = new THREE.Mesh(frameGeometry, frameMaterial);
         group.add(frameSphere);
+        i--;
     }
 }
 
@@ -138,9 +142,35 @@ function createRandomSpheres() {
     }
 }
 
+function createAxes() {
+    const axesHelper = new THREE.AxesHelper(20);
+    group.add(axesHelper);
+}
+
+function createSun() {
+    // Create a directional light to represent the sun
+    sun = new THREE.DirectionalLight(0xffffff, 1); // White light with full intensity
+    sun.position.set(0, 1, 0); // Position the sun above the moon's surface
+    group.add(sun);
+}
+
+function animateSun() {
+    // Calculate the sun's position based on time of day
+    const timeOfDay = (Date.now() % (24 * 60 * 60)) / (24 * 60 * 60); // Current time as a fraction of a day
+    const sunAngle = Math.PI * 2 * timeOfDay; // Angle around the moon's surface
+    const distance = 20; // Distance of the sun from the moon's center
+    const x = Math.cos(sunAngle) * distance;
+    const z = Math.sin(sunAngle) * distance;
+
+    // Update the sun's position
+    sun.position.set(x, 1, z);
+    console.log(timeOfDay);
+}
+
 function initSphere() {
+    createSun();
     createMoon();
-    createLines();
+    //createLines();
     createFrames();
     createRandomSpheres();
 }
@@ -150,9 +180,11 @@ function init() {
     setupCamera();
     setupRenderer();
     setupControls();
-    setupLight();
+    //setupLight();
     initSphere();
+    createAxes();
     setupEventListeners();
+
 }
 
 function setupScene() {
@@ -239,5 +271,6 @@ function animate() {
             animateSphere(object);
         }
     });
+    animateSun();
     renderer.render(scene, camera);
 }
