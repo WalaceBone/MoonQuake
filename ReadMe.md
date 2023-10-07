@@ -13,6 +13,13 @@ Astronauts left several Passive Seismic Experiments (PSE) on the lunar surface d
 [ThreeJs]([https://threejs.org/](https://threejs.org/))  
 [Fundamental]([https://threejs.org/manual/#en/fundamentals](https://threejs.org/manual/#en/fundamentals))
 
+
+#### Run
+
+To run locally : 
+```npx vite```
+
+
 #### Ressources
 
 https://svs.gsfc.nasa.gov/4720
@@ -25,6 +32,9 @@ https://ntrs.nasa.gov/api/citations/20200001816/downloads/20200001816.pdf
 https://nssdc.gsfc.nasa.gov/misc/documents/b53211.pdf
 https://pds-geosciences.wustl.edu/missions/apollo/seismic_event_catalog.html
 https://pds-geosciences.wustl.edu/missions/apollo/apollo_pse.htm
+
+- [Module Python Séismologie](https://docs.obspy.org/)
+- [yoshio Nakamura](https://scholar.google.com/citations?user=WJybDq8AAAAJ&hl=en)
 
 Le Proj de l'an dernier : https://2022.spaceappschallenge.org/challenges/2022-challenges/moonquake-map/teams/selene-5/project
 
