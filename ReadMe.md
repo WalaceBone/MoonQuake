@@ -35,6 +35,9 @@ https://pds-geosciences.wustl.edu/missions/apollo/apollo_pse.htm
 
 - [Module Python Séismologie](https://docs.obspy.org/)
 - [yoshio Nakamura](https://scholar.google.com/citations?user=WJybDq8AAAAJ&hl=en)
+- [Planetary Data System](https://pds-geosciences.wustl.edu/missions/apollo/apollo_pse.htm)
+- [README for pds](https://pds-geosciences.wustl.edu/lunar/urn-nasa-pds-apollo_pse/readme.txt)
+
 
 Le Proj de l'an dernier : https://2022.spaceappschallenge.org/challenges/2022-challenges/moonquake-map/teams/selene-5/project
 
