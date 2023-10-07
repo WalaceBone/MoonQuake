@@ -37,10 +37,31 @@ https://pds-geosciences.wustl.edu/missions/apollo/apollo_pse.htm
 - [yoshio Nakamura](https://scholar.google.com/citations?user=WJybDq8AAAAJ&hl=en)
 - [Planetary Data System](https://pds-geosciences.wustl.edu/missions/apollo/apollo_pse.htm)
 - [README for pds](https://pds-geosciences.wustl.edu/lunar/urn-nasa-pds-apollo_pse/readme.txt)
-
+- [Github Plannetary Data](https://github.com/cerinunn/pdart/blob/master/getting_started.ipynb)
 
 Le Proj de l'an dernier : https://2022.spaceappschallenge.org/challenges/2022-challenges/moonquake-map/teams/selene-5/project
 
+
+CSA Challenges: Space Apps Challenge | Canadian Space Agency (asc-csa.gc.ca)
+
+NASA Global Offers (hosting, cloud services, etc..): NASA Space Apps Challenge
+
+Global Space Apps discussion platform: https://github.com/nasa/spaceapps
+
+
+CSA Open Data Portal: Open data and information Portal (asc-csa.gc.ca)
+
+Government of Canada Open Data: Open Government | Open Government, Government of Canada
+
+CSA Open Data/Code landing page: Open data and information | Canadian Space Agency (asc-csa.gc.ca)
+
+EODMS (Canadian synthetic aperture radar data, free login required for most things): https://www.eodms-sgdot.nrcan-rncan.gc.ca/index-en.html
+
+RADARSAT-1 Data on AWS: RADARSAT-1 - Registry of Open Data on AWS
+
+Canadian Astronomy Data Centre (CADC): https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/
+
+CSA open code (including code and non-code data tutorials): Agence spatiale canadienne - Canadian Space Agency - GitHub
 
 #### Ideas/ToDo  
 
