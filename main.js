@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import GUI from 'lil-gui';
 
 let camera, scene, renderer, light;
 let loader, group;
@@ -10,6 +11,7 @@ let pulseGroup;
 
 let sun, moon;
 
+let gui = new GUI();
 
 const vertexShader = `
     varying vec2 vUv;
@@ -175,7 +177,19 @@ function initSphere() {
     createRandomSpheres();
 }
 
+// function setupGUI() {
+
+//     obj = {
+//         title: 'Moonquake',
+
+//     }
+
+//     gui.add(document, 'title');
+//     gui.add(document, 'wireframe');
+// }
+
 function init() {
+    //setupGUI();
     setupScene();
     setupCamera();
     setupRenderer();
