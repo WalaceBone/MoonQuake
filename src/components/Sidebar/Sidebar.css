@@ -1,0 +1,23 @@
+#sidebar {
+  top: calc(50vh - 120px);
+  right: 110px;
+  color: #FFF;
+}
+
+h6 {
+  text-decoration: underline;
+}
+
+ol {
+  text-align: right;
+}
+
+li {
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+li:hover {
+  position: relative;
+  right: 20px;
+}
