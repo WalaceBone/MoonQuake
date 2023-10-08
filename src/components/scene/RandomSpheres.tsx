@@ -92,8 +92,7 @@ export const RandomSpheres = ({ spheresCount = 100 }: RandomSpheresProps): JSX.E
     return spheresList
   }, [spheresCount])
 
-  return spheresContent
-
+  return spheresContent;
 }
 
-export default RandomSpheres
+export default RandomSpheres;

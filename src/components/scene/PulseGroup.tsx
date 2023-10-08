@@ -1,13 +1,31 @@
-import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
-
+import { useContext } from "react";
 import RandomSpheres from "./RandomSpheres";
-import { Mesh, SphereGeometry, Vector3, type Object3D, type Object3DEventMap } from 'three';
+import Sphere from './Sphere';
+import PSEContext from "../../utils/PSEContext";
 
 const PulseGroup = (): JSX.Element => {
+  const ctx = useContext(PSEContext);
+  const stations = ctx.getElementsByTagName("Station");
+
   return (
     <object3D>
       <RandomSpheres />
+
+      {stations.map(({
+        attributes: { code },
+        children
+      }) => {
+        const longitude = children.find(child => child.name === "Longitude");
+        const latitude = children.find(child => child.name === "Latitude");
+
+        return (
+          <Sphere
+            key={code}
+            longitude={longitude.value}
+            latitude={latitude.value}
+          />
+        );
+      })}
     </object3D>
   )
 }

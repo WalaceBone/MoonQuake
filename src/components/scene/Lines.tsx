@@ -46,7 +46,7 @@ const latLngToCartesian = (longitude: number, latitude: number, radius: number):
   const phiRad = (latitude - 90) * (Math.PI / 180);
   const thetaRad = longitude * (Math.PI / 180);
 
-  console.log(phiRad, thetaRad);
+  // console.log(phiRad, thetaRad);
 
   const x = radius * Math.sin(phiRad) * Math.cos(thetaRad);
   const y = radius * Math.sin(phiRad) * Math.sin(thetaRad);
@@ -63,9 +63,8 @@ const DirectionalVector = ({ long, lat, az }: LineProps): JSX.Element => {
   const originalVector = vector; // Replace with your vector
   const azimuthAngle = az; // Replace with your azimuth angle in degrees
   const rotatedVector = rotateVector(vector, azimuthAngle, inclinationAngle);
-  console.log(`Original Vector: (${originalVector.x}, ${originalVector.y}, ${originalVector.z})`);
-  console.log(`Rotated Vector: (${rotatedVector.x}, ${rotatedVector.y}, ${rotatedVector.z})`);
-
+  // console.log(`Original Vector: (${originalVector.x}, ${originalVector.y}, ${originalVector.z})`);
+  // console.log(`Rotated Vector: (${rotatedVector.x}, ${rotatedVector.y}, ${rotatedVector.z})`);
 
   const endX = 2 * vector.x;
   const endY = 2 * vector.y;
