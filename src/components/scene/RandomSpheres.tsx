@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Vector3 } from 'three';
-
+import DirectionalVector from './Lines';
 const vertexShader = `
     varying vec2 vUv;
     void main() {
@@ -28,7 +28,7 @@ export const RandomSphere = ({ sphereRadius = 10 }: RandomSphereProps): JSX.Elem
   const x = sphereRadius * Math.sin(theta) * Math.cos(phi);
   const y = sphereRadius * Math.sin(theta) * Math.sin(phi);
   const z = sphereRadius * Math.cos(theta) * Math.sin(phi);
-
+  
   return (
     <mesh position={new Vector3(x, y, z)}>
       <sphereGeometry args={[Math.random(), 32, 32]} />
@@ -36,6 +36,7 @@ export const RandomSphere = ({ sphereRadius = 10 }: RandomSphereProps): JSX.Elem
         colorA: { value: new Vector3(1, 0, 0) },
         colorB: { value: new Vector3(1, 0, 0) }
       }} />
+      <DirectionalVector long={y} lat={x} az={z} />
     </mesh>
   )
 }
