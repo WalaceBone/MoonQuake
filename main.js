@@ -54,8 +54,19 @@ function createMoon() {
 function createLine(points) {
     const lineMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
     const lineGeometry = new THREE.BufferGeometry();
-    lineGeometry.setFromPoints(points);
-    return new THREE.Line(lineGeometry, lineMaterial);
+
+    const endX = 2* points.x;
+    const endY = 2* points.y;
+    const endZ = 2* points.z;
+
+    const geometry = new THREE.BufferGeometry();
+    const vertices = new Float32Array([points.x, points.y, points.z, endX, endY, endZ]);
+    geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+    const material = new THREE.LineBasicMaterial({ color: 0x00ff00 });
+    const line = new THREE.Line(geometry, material);
+
+    //lineGeometry.setFromPoints(points);
+    return line;
 }
 
 
@@ -192,7 +203,7 @@ function createSphereFromLongLat(long, lat, azymut) {
     // let y = radius * Math.sin(theta) * Math.sin(phi);
     // let z = radius * Math.cos(theta) * Math.sin(phi);
 
-    azymut = azymut * (Math.PI/180);
+    azymut = azymut ;//* (Math.PI/180);
     const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
 
     const sphereMaterial = new THREE.ShaderMaterial({
@@ -205,13 +216,14 @@ function createSphereFromLongLat(long, lat, azymut) {
     });
 
     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    const coordinate = latLngToCartesian(long, lat,radius);
+    const coordinate = latLngToCartesian(long, lat, radius);
     const point = new THREE.Vector3(coordinate.x, coordinate.y, coordinate.z);
     console.log(point);
 
-    // TODO 
+    const directionalVector = createLine(point);
 
     sphere.position.copy(point);
+    group.add(directionalVector);
     pulseGroup.add(sphere);
 }
 
@@ -221,10 +233,12 @@ function initSphere() {
     //createLines();
     createFrames();
     //createRandomSpheres();
-    createSphereFromLongLat(-3, -23);
-    createSphereFromLongLat(-3, -17);
-    createSphereFromLongLat(26,3);
-    createSphereFromLongLat(-9, 15);
+    createSphereFromLongLat(-3, -23, 180);
+    createSphereFromLongLat(-3, -23, 180);
+    
+    createSphereFromLongLat(-3, -17, 0);
+    createSphereFromLongLat(26, 3, 0);
+    createSphereFromLongLat(-9, 15, 334.5);
     createSphereFromLongLat(20,30);
 }
 
