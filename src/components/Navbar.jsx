@@ -8,6 +8,8 @@ import { logo } from '../assets';
 const Navbar = () => {
   const [active, setActive] = useState("");
 
+  // const ctx = useContext(PSEContext);
+
   return (
     <nav className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}>
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -42,4 +44,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

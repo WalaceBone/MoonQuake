@@ -1,7 +1,7 @@
 export const navLinks = [
   {
-    id: "about",
-    title: "About",
+    id: "apollo",
+    title: "Apollo Lunar Seismic",
   },
 ];
 
