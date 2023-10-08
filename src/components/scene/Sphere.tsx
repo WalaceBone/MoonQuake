@@ -18,11 +18,15 @@ const fragmentShader = `
     }
 `;
 
-export interface RandomSphereProps {
+export interface SphereProps {
   sphereRadius?: number
+  longitude?: number
+  latitude?: number
+  azymut?: number
+
 }
 
-export const RandomSphere = ({ sphereRadius = 10 }: RandomSphereProps): JSX.Element => {
+export const Sphere = ({ sphereRadius = 10, longitude, latitude, azymut = 0}: SphereProps): JSX.Element => {
   const theta = Math.random() * Math.PI;
   const phi = Math.random() * 2 * Math.PI;
   const x = sphereRadius * Math.sin(theta) * Math.cos(phi);
@@ -41,22 +45,18 @@ export const RandomSphere = ({ sphereRadius = 10 }: RandomSphereProps): JSX.Elem
   )
 }
 
-export interface RandomSpheresProps {
-  spheresCount?: number
-}
+// export const RandomSpheres = ({ spheresCount = 100 }: RandomSpheresProps): JSX.Element[] => {
+//   const spheresContent = useMemo(() => {
+//     const spheresList = []
+//     for (let i = 0; i < spheresCount; i++) {
+//       spheresList.push(<RandomSphere key={`random-spheres-${i}`} />)
+//     }
 
-export const RandomSpheres = ({ spheresCount = 100 }: RandomSpheresProps): JSX.Element[] => {
-  const spheresContent = useMemo(() => {
-    const spheresList = []
-    for (let i = 0; i < spheresCount; i++) {
-      spheresList.push(<RandomSphere key={`random-spheres-${i}`} />)
-    }
+//     return spheresList
+//   }, [spheresCount])
 
-    return spheresList
-  }, [spheresCount])
+//   return spheresContent
 
-  return spheresContent
+// }
 
-}
-
-export default RandomSpheres
+export default Sphere

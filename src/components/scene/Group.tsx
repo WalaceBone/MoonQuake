@@ -3,6 +3,7 @@ import { Object3D, Object3DEventMap } from "three"
 import Frames from "./Frames"
 import Moon from "./Moon"
 import Sun from "./Sun"
+import Sphere from './Sphere'
 
 const radius = 10
 
@@ -42,6 +43,7 @@ const Group = (): JSX.Element => {
       <Moon radius={radius} />
       <Frames radius={radius} />
       <axesHelper args={[10]} />
+      <Sphere />
     </object3D>
   )
 }
