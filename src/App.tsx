@@ -1,10 +1,13 @@
 import { JSX } from 'react'
 import { BrowserRouter } from "react-router-dom";
 
+import { extractData } from './utils/data-converter';
 import { About, Navbar } from './components';
 import MoonCanvas from './components/scene/MoonCanvas';
 
 const App = (): JSX.Element => {
+  extractData();
+
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
@@ -17,6 +20,5 @@ const App = (): JSX.Element => {
     </BrowserRouter>
   )
 }
-
 
 export default App;
