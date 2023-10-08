@@ -5,7 +5,7 @@ import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 import CanvasLoader from "../Loader";
 
 const Moon = () => {
-  const moon = useGLTF('public/moon/moon.gltf');
+  const moon = useGLTF('/moon/moon.gltf');
 
   return (
     <mesh>
