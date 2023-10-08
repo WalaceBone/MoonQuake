@@ -39,7 +39,7 @@ const Group = (): JSX.Element => {
   return (
     <object3D ref={groupRef}>
       <Sun />
-      <Moon radius={radius} />
+      <Moon />
       <Frames radius={radius} />
       <axesHelper args={[10]} />
     </object3D>

@@ -1,16 +1,15 @@
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 
-interface MoonProps {
-  radius?: number
-}
+import { moon } from '../../constants';
 
-const Moon = ({ radius = 10 }: MoonProps): JSX.Element => {
+const Moon = (): JSX.Element => {
   const moonTexture = useLoader(TextureLoader, 'moon/2k_moon.jpg')
+  const { radius, widthSegments, heightSegments } = moon;
 
   return (
     <mesh name='moon'>
-      <sphereGeometry args={[radius, 1000, 1000]} />
+      <sphereGeometry args={[radius, widthSegments, heightSegments]} />
       <meshStandardMaterial map={moonTexture} />
     </mesh>
   )

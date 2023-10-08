@@ -14,11 +14,11 @@ const Sun = (): JSX.Element => {
     const z = Math.sin(sunAngle) * distance;
 
     // Update the sun's position
-    sunRef.current.position.set(x, 1, z);
+    sunRef.current.position.set(x, 100, z);
   })
   return (
     <directionalLight ref={sunRef} color={0xffffff} intensity={1} position={[0, 1, 0]} />
   )
 }
 
-export default Sun
+export default Sun;
