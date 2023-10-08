@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 import { BrowserRouter } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
+import { About, Hero, Navbar } from './components';
 import MoonCanvas from './components/scene/MoonCanvas';
 
 const App = (): JSX.Element => {
@@ -13,15 +13,7 @@ const App = (): JSX.Element => {
           <MoonCanvas />
           {/* <Hero /> */}
         </div>
-        {/* <About />
-        <Experience />
-        <Tech />
-        <Works />
-        <Feedbacks />
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
-        </div> */}
+        {/* <About /> */}
       </div>
     </BrowserRouter>
   )

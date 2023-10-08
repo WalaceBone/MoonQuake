@@ -5,10 +5,10 @@ import { Vector3 } from 'three';
 
 import PulseGroup from './PulseGroup';
 import Group from './Group';
+import { canvasProps } from '../../constants';
 
 interface MoonCanvas {
   position?: Vector3
-  fov?: number
   aspect?: number
   near?: number
   far?: number
@@ -18,13 +18,14 @@ interface MoonCanvas {
 
 const MoonCanvas = ({
   position = new Vector3(0, 0, 20),
-  fov = 60,
   aspect = window.innerWidth / window.innerHeight,
   near = 1,
   far = 2000,
   width = window.innerWidth,
   height = window.innerHeight,
 }: MoonCanvas): JSX.Element => {
+  const { fov } = canvasProps;
+
   return (
     <Canvas
       style={{ width, height }}
