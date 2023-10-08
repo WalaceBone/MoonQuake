@@ -6,7 +6,7 @@ interface MoonProps {
 }
 
 const Moon = ({ radius = 10 }: MoonProps): JSX.Element => {
-  const moonTexture = useLoader(TextureLoader, '2k_moon.jpg')
+  const moonTexture = useLoader(TextureLoader, 'moon/2k_moon.jpg')
 
   return (
     <mesh name='moon'>
