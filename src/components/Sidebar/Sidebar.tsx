@@ -18,7 +18,7 @@ const Sidebar = () => {
       <h6>Data from {startDate.substr(0, 4)} to {endDate.substr(0, 4)}</h6>
       <ol>
         {stations.map(({ attributes: { code, endDate, startDate } }) => (
-          <li>{`${code} [${startDate.substr(0, 7)}, ${endDate.substr(0, 7)}]`}</li>
+          <li key={code}>{`${code} [${startDate.substr(0, 7)}, ${endDate.substr(0, 7)}]`}</li>
         ))}
       </ol>
     </aside>
