@@ -6,7 +6,7 @@ import PSEContext from "../../utils/PSEContext";
 
 const PulseGroup = (): JSX.Element => {
   const ctx = useContext(PSEContext);
-  const stations = ctx.getElementsByTagName("Station");
+  const stations = ctx === null ? [] : ctx.getElementsByTagName("Station");
 
   return (
     <object3D>

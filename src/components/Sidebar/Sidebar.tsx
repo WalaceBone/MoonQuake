@@ -13,7 +13,7 @@ const Sidebar = () => {
   }
 
   const { startDate, endDate } = ctx.attributes;
-  const stations = ctx.getElementsByTagName("Station");
+  const stations = ctx === null ? [] : ctx.getElementsByTagName("Station");
 
   const handleStationClick = ({ children }) => {
     const longitude = children.find(child => child.name === "Longitude");
