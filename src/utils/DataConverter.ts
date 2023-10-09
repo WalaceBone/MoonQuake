@@ -3,7 +3,7 @@ import XMLParser from 'react-xml-parser';
 const importXMLDocument = async () => {
   try {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "public/metadata.xml", false);
+    xhr.open("GET", "metadata.xml", false);
     xhr.send();
     return xhr.responseXML;
   } catch (error) {
